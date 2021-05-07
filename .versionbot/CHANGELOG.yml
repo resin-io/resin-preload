@@ -1,4 +1,24 @@
 - commits:
+    - subject: Append to existing apps.json preload state instead of overwriting
+      hash: 08bff28a8f6e7fb637bf0ba8dfd64ef024fd12f0
+      body: >
+        If the image we are preloading to contains an existing `apps.json`
+        append
+
+        the preloaded app to it instead of overwriting it.
+
+
+        Fixes balena-io/balena-cli#2262
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alex Gonzalez <alexg@balena.io>
+        signed-off-by: Alex Gonzalez <alexg@balena.io>
+      author: Alex Gonzalez
+      nested: []
+  version: 10.4.7
+  date: 2021-05-07T15:52:15.470Z
+- commits:
     - subject: 'Update dependencies (dockerode, docker-progress)'
       hash: efb8f4699c8988f5b9c1a4a04b53249837c10aeb
       body: ''
