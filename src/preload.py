@@ -610,7 +610,17 @@ def write_resin_device_pinning(app_data, output):
 
 
 def write_apps_json(data, output):
-    """Writes data dict to output as json"""
+    """Updates or creates preloaded state"""
+    if os.path.isfile(output):
+        with open(output, "r") as f:
+            current_state = json.load(f)
+        for uuid in data.keys():
+            if len(uuid) != len(current_state.keys()[0]):
+                raise Exception("Current and target preloaded states not "
+                                "compatible")
+            if uuid not in current_state['apps']:
+                current_state['apps'][uuid] = data[uuid]
+        data = current_state
     with open(output, "w") as f:
         json.dump(data, f, indent=4, sort_keys=True)
 
